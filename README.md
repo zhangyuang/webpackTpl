@@ -1,7 +1,7 @@
 ## webpack + vue多页面应用脚手架模版
 
 ### 开发规范
-项目结构按照xxx.html对应src/xxx文件夹规范开发。一个html页面文件对应src下对应的目录
+项目结构按照xxx.html对应src/xxx文件夹规范开发。一个html页面文件对应src下同名的目录
 
 ### 有何亮点
 - 自动分析打包页面依赖的模块，保证该页面引用的js资源只包含该页面所需的模块 一般来说加载的js包括manifest.js vendor.js(多个页面共同依赖的模块) vendor-app.js(该页面用到的第三方模块) app-page.js

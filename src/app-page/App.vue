@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./static/logo.jpeg" class="logo">
-    <HelloWorld msg="webpack + vue 多页面应用项目基础配置"/>
+    <router-view></router-view>
   </div>
 </template>
 

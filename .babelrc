@@ -10,13 +10,6 @@
   "plugins": [
     "@babel/plugin-transform-runtime",
     "@babel/plugin-transform-object-assign",
-    [
-      "component",
-      {
-        "libraryName": "mint-ui",
-        "style": true
-      }
-    ],
     "@babel/plugin-syntax-import-meta",
     "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-json-strings",

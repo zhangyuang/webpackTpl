@@ -1,6 +1,8 @@
 require('./check-versions')()
 
 const config = require('../build_config')
+const c = require('child_process')
+
 config.build_type = 'dev'
 
 if (!process.env.NODE_ENV) {
@@ -76,6 +78,16 @@ console.log('> Starting dev server...')
 devMiddleware.waitUntilValid(() => {
   console.log(`> Listening at ${uri}\n`)
   console.log(chalk.yellow(' 开发前请仔细阅读 README.md 和 文档，可以帮助你省去省去很多麻烦和提高工作效率！！！\n 否则可能死的很惨呦！！！'))
+  let cmd
+  let url = `http://localhost:8081/app-page.html`
+  if (process.platform === 'wind32') {
+    cmd = 'start'
+  } else if (process.platform === 'linux') {
+    cmd = 'xdg-open'
+  } else if (process.platform === 'darwin') {
+    cmd = 'open'
+  }
+  c.exec(`${cmd} "${url}"`)
   // when env is testing, don't need open it
   if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
     opn(uri)

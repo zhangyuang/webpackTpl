@@ -2,30 +2,19 @@
   <div class="hello">
     <h1>{{ msg }}</h1>
     <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
+     webpack + vue 项目性能优化指南
+      <a href="https://zhuanlan.zhihu.com/p/46971923" target="_blank" rel="noopener">webpack+vue多页面应用打包优化实战</a>.
     </p>
-    <h3>Installed CLI Plugins</h3>
+    <h3>有何亮点</h3>
     <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
+     <li class="active">自动分析打包页面依赖的模块，保证该页面引用的js资源只包含该页面所需的模块</li>
+     <li>添加postcss-loader，无需手动添加浏览器前缀</li>
+     <li>升级到了babel7，使用transform-runtime代替polyfill，大大减少打包文件体积</li>
+     <li>webpack配置文件关键配置皆附带中文注释</li>
+     <li>根据生产环境和开发环境使用不同版本的vue源文件</li>
+     <li>开发规范定制 eslint or standard</li>
+     <li>开发工具定制 是否需要添加vuex or vue-router</li>
+     <li>执行 npm run analyze 生成可视化打包文件</li>
     </ul>
   </div>
 </template>
@@ -49,10 +38,12 @@ ul {
   padding: 0;
 }
 li {
-  display: inline-block;
-  margin: 0 10px;
+  margin: 5px 10px;
 }
 a {
   color: #42b983;
+}
+.active {
+  color: red;
 }
 </style>

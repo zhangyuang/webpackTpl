@@ -10,8 +10,6 @@
   "plugins": [
     "@babel/plugin-transform-runtime",
     "@babel/plugin-transform-object-assign",
-    "@babel/plugin-syntax-import-meta",
-    "@babel/plugin-proposal-class-properties",
     "@babel/plugin-proposal-json-strings",
     [
       "@babel/plugin-proposal-decorators",
@@ -19,10 +17,7 @@
         "legacy": true
       }
     ],
-    "@babel/plugin-proposal-function-sent",
-    "@babel/plugin-proposal-export-namespace-from",
-    "@babel/plugin-proposal-numeric-separator",
-    "@babel/plugin-proposal-throw-expressions"
+    "@babel/plugin-proposal-export-namespace-from"
   ],
   "comments": false
 }

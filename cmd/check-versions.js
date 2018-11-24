@@ -23,6 +23,7 @@ if (shell.which('npm')) {
 }
 
 module.exports = function () {
+  // 检查模块的版本，如果过低提示升级
   const warnings = []
   for (let i = 0; i < versionRequirements.length; i++) {
     const mod = versionRequirements[i]

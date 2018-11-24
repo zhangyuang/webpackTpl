@@ -11,7 +11,7 @@
 - [x] 生产环境css提取为单独文件 静态资源文件压缩
 - [x] babel使用transform-runtime代替polyfill，按需加载使用到的babel特性大大减少打包文件体积
 - [x] 预置常用babel插件
-- [x] vue-router使用懒加载，减少初次加载的文件体积
+- [x] vue-router使用懒加载，减少初次加载的文件体积
 - [x] 根据生产环境和开发环境使用不同版本的vue源文件
 - [x] 执行 npm run analyze 生成可视化打包文件
 - [x] webpack关键配置处皆附有注释，可根据实际需要修改配置

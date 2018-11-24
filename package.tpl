@@ -1,8 +1,8 @@
 {
-  "name": "better-cli-tpl",
+  "name": "{{ projectName }}",
   "version": "1.0.0",
   "description": "webpack + vue多页面应用脚手架模版",
-  "author": "张宇昂",
+  "author": "{{ author }}",
   "scripts": {
     "dev": "node cmd/dev-server.js",
     "start": "node cmd/dev-server.js",

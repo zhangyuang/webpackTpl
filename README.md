@@ -42,5 +42,6 @@
 可以看出，只有app-page页面用到了vue-router但是out-page页面也加载了vendor.js中的vue-router
 
 ### 对多页面应用做分离打包优化
-![优化后](https://img.alicdn.com/tfs/TB1z5qSp3HqK1RjSZJnXXbNLpXa-2874-1570.png)
-可以看出vue-router被单独打包到vendor-app.js文件并且只在app-page中加载
+![优化后](https://img.alicdn.com/tfs/TB1DjXsrHPpK1RjSZFFXXa5PpXa-2872-1558.png)
+可以看出vue-router被单独打包到vendor-app.js文件并且只在app-page页面v中加载, axios被单独打包到vendor-out.js中并且只在out-page页面加载
+

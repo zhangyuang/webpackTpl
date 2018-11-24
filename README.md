@@ -25,14 +25,14 @@
 ## 内置babel插件
 - [@babel/preset-env](https://www.baidu.com/link?url=YV7CjHPZWlg3fWk_p5qwdHx4vQgYJDAXb_ldokM4tf1P-ItVo0piyqPdxcY6_JrnAL4sa7Whs7uNJpUaWWcIo_&wd=&eqid=e4b71adc00003376000000045bf8247e) 将基于你的实际浏览器及运行环境，自动的确定babel插件及polyfills，转译ES2015及此版本以上的语言
 - [@babel/plugin-transform-runtime](https://babeljs.io/docs/en/babel-plugin-transform-runtime/) 使用transform-runtime代替babel-polyfill目的是按需引入你需要babel转换的特性，而不是将整个polyfill引入，并且不会像polyfill一样重写原本的API。缺点是某些不支持的API，例如Object.assign Array.includes, 需要引入单独插件
-- @babel/plugin-transform-object-assign 为不包含Object.assign的浏览器注册该API
+- [@babel/plugin-transform-object-assign](https://babeljs.io/docs/en/babel-plugin-transform-object-assign/) 为不包含Object.assign的浏览器注册该API
 - [@babel/plugin-proposal-json-strings](https://babeljs.io/docs/en/next/babel-plugin-proposal-json-strings.html)
 - [@babel/plugin-proposal-decorators](http://npm.taobao.org/package/babel-plugin-transform-decorators-legacy) 给class提供装饰器功能
 - [@babel/plugin-proposal-export-namespace-from](https://babeljs.io/docs/en/next/babel-plugin-proposal-export-namespace-from.html) 提供export * as ns from 'mod' 语法
 - [@babel/plugin-syntax-dynamic-import](https://babeljs.io/docs/en/babel-plugin-syntax-dynamic-import/) vue-router懒加载需要用到的babel插件
 
 ## 文章总结
-[webpack+Vue多页面应用打包优化实战](https://zhuanlan.zhihu.com/p/46971923)
+[webpack+Vue多页面应用打包优化实战](https://zhuanlan.zhihu.com/p/46971923)
 
 ## 优化前后对比
 

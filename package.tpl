@@ -26,6 +26,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@babel/runtime": "7.0.0-beta.55",
+    "babel-eslint": "^10.0.1",
     "autoprefixer": "^6.7.2",
     "babel-loader": "^8.0.0",
     "babel-minify-webpack-plugin": "^0.3.1",

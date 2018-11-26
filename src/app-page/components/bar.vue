@@ -6,7 +6,7 @@
       <a href="https://zhuanlan.zhihu.com/p/46971923" target="_blank" rel="noopener">webpack+vue多页面应用打包优化实战</a>.
     </p>
     <h3>开发规范</h3>
-    <p>项目结构按照xxx.html对应src/xxx文件夹规范开发。一个html页面文件对应src下同名的目录</p>
+      <p>项目结构按照xxx.html对应src/xxx文件夹规范开发。一个html页面文件对应src下同名的目录</p>
     <h3>有何亮点</h3>
     <ul>
      <li class="active">自动分析打包页面依赖的模块，保证该页面引用的js资源只包含该页面所需的模块</li>
@@ -26,7 +26,7 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'webpack + vue 多页面应用项目基础配置'
+      msg: 'bar'
     }
   }
 }

@@ -14,7 +14,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "vue": "^2.5.17",
+    {% if installRouter %}
     "vue-router": "^3.0.1"
+    {% endif %}
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -22,6 +24,9 @@
     "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
     "@babel/plugin-proposal-json-strings": "^7.0.0",
     "@babel/plugin-transform-object-assign": "^7.0.0",
+    {% if installRouter %}
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    {% endif %}
     "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",

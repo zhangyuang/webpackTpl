@@ -6,17 +6,17 @@
 </template>
 
 <script>
-import HelloWorld from './components/helloworld.vue'
+import HelloWorld from './components/helloworld.vue';
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  },
-  mounted () {
-      
-  }
-}
+    name: 'app',
+    components: {
+        HelloWorld
+    },
+    mounted () {
+
+    }
+};
 </script>
 
 <style>

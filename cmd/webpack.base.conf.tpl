@@ -40,7 +40,7 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader'
       },
-      {%- if installEslint -%}
+      {% if installEslint -%}
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
@@ -49,7 +49,7 @@ module.exports = {
           formatter: require('eslint-friendly-formatter')
         }
       },
-      {%- endif -%}
+      {%- endif %}
       {
         test: /\.html$/,
         loader: 'html-loader',

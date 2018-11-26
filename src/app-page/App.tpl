@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./static/logo.jpeg" class="logo">
-    {%- if installRouter -%}
+    {% if installRouter -%}
     <router-view></router-view>
-    {%- else -%}
+    {%- else %}
     <hello-world></hello-world>
-    {%- endif -%}
+    {%- endif %}
     <router-view></router-view>
   </div>
 </template>

@@ -23,13 +23,13 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'bar'
+    name: 'HelloWorld',
+    data () {
+        return {
+            msg: 'bar'
+        };
     }
-  }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

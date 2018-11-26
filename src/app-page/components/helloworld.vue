@@ -23,13 +23,13 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
-  data () {
-    return {
-      msg: 'webpack + vue 多页面应用项目基础配置'
+    name: 'HelloWorld',
+    data () {
+        return {
+            msg: 'webpack + vue 多页面应用项目基础配置'
+        };
     }
-  }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

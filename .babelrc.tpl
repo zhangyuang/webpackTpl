@@ -11,9 +11,9 @@
     "@babel/plugin-transform-runtime",
     "@babel/plugin-transform-object-assign",
     "@babel/plugin-proposal-json-strings",
-    {%- if installRouter -%}
+    {% if installRouter -%}
     "@babel/plugin-syntax-dynamic-import",
-    {%- endif -%}
+    {%- endif %}
     [
       "@babel/plugin-proposal-decorators",
       {

@@ -40,14 +40,16 @@ module.exports = {
         test: /\.js$/,
         loader: 'babel-loader'
       },
-      {
-        test: /\.(js|vue)$/,
-        loader: 'eslint-loader',
-        include: path.resolve(__dirname, '../src'),
-        options: {
-          formatter: require('eslint-friendly-formatter')
-        }
-      },
+      {% if installEslint %}
+        {
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          include: path.resolve(__dirname, '../src'),
+          options: {
+            formatter: require('eslint-friendly-formatter')
+          }
+        },
+      {% endif %}
       {
         test: /\.html$/,
         loader: 'html-loader',

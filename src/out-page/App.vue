@@ -5,13 +5,15 @@
 </template>
 
 <script>
+// eslint-disable-next-line
+import axios from 'axios';
 
 export default {
     name : 'out-page',
     data() {
         return {
-           
-        }
+
+        };
     },
     created () {
 
@@ -22,7 +24,7 @@ export default {
     methods: {
 
     }
-}
+};
 
 </script>
 <style>

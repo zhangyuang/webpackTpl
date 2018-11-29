@@ -31,10 +31,10 @@
 
 <script>
 export default {
-    name: 'HelloWorld',
+    name: 'foo',
     data () {
         return {
-            msg: 'webpack + Vue 多页面应用项目基础配置'
+            msg: 'webpack + Vue 多页面应用项目基础配置 foo页面'
         };
     }
 };

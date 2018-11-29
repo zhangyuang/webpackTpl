@@ -5,8 +5,8 @@ module.exports = {
   build: {
     env: require('./prod.env'),
     assetsRoot: path.resolve(__dirname, '../build'), // 输出的文件目录
-    assetsSubDirectory: 'static',
-    assetsPublicPath: '',
+    assetsSubDirectory: 'static', // 静态资源目录
+    assetsPublicPath: '', // express static目录
     cssSourceMap: true,
     productionGzip: false, // 构建时开启gzip
     productionGzipExtensions: ['js', 'css'],

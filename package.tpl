@@ -1,8 +1,8 @@
 {
-  "name": "better-cli-tpl",
+  "name": "{{ projectName }}",
   "version": "1.0.0",
   "description": "webpack + vue多页面应用脚手架模版",
-  "author": "张宇昂",
+  "author": "{{ author }}",
   "scripts": {
     "dev": "node cmd/dev-server.js",
     "start": "node cmd/dev-server.js",
@@ -14,7 +14,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "vue": "^2.5.17",
+    {% if installRouter -%}
     "vue-router": "^3.0.1"
+    {%- endif %}
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
@@ -22,20 +24,25 @@
     "@babel/plugin-proposal-export-namespace-from": "^7.0.0",
     "@babel/plugin-proposal-json-strings": "^7.0.0",
     "@babel/plugin-transform-object-assign": "^7.0.0",
+    {%- if installRouter %}
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    {% endif -%}
     "@babel/plugin-transform-runtime": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@babel/runtime": "7.0.0-beta.55",
     "autoprefixer": "^6.7.2",
-    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.0",
     "babel-minify-webpack-plugin": "^0.3.1",
     "connect-history-api-fallback": "^1.3.0",
     "css-loader": "^0.9.0",
+    {%- if installEslint %}
+    "babel-eslint": "^10.0.1",
     "eslint": "^3.19.0",
     "eslint-friendly-formatter": "^2.0.7",
     "eslint-loader": "^1.7.1",
     "eslint-plugin-html": "^2.0.3",
+    {% endif -%}
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.14.1",
     "extract-text-webpack-plugin": "^3.0.0",

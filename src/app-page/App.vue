@@ -1,9 +1,10 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./static/logo.jpeg" class="logo">
+    <img alt="Youku logo" src="./static/logo.jpeg" class="logo">
     <router-view></router-view>
   </div>
 </template>
+
 
 <script>
 import HelloWorld from './components/helloworld.vue';

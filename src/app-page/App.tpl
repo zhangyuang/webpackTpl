@@ -1,27 +1,27 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./static/logo.jpeg" class="logo">
+    <img alt="Youku logo" src="./static/logo.jpeg" class="logo">
     {% if installRouter -%}
     <router-view></router-view>
     {%- else %}
     <hello-world></hello-world>
     {%- endif %}
-    <router-view></router-view>
   </div>
 </template>
 
+
 <script>
-import HelloWorld from './components/helloworld.vue'
+import HelloWorld from './components/helloworld.vue';
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  },
-  mounted () {
-      
-  }
-}
+    name: 'app',
+    components: {
+        HelloWorld
+    },
+    mounted () {
+
+    }
+};
 </script>
 
 <style>

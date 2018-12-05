@@ -13,10 +13,10 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "vue": "^2.5.17",
     {% if installRouter -%}
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
     {%- endif %}
+    "vue": "^2.5.17"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",

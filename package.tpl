@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    {%- if installRouter -%}
+    {% if installRouter -%}
     "vue-router": "^3.0.1",
-    {%- endif -%}
+    {%- endif %}
     "vue": "^2.5.17"
   },
   "devDependencies": {

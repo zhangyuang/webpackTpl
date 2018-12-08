@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="theme-color" content="#000000">
+    <link rel="stylesheet" type="text/css" href="//g.alicdn.com/player/h5phoneplayer/1.6.33/css/h5phoneplayer.min.css">
+    <title>React SSR App</title>
+    {% if data %} 
+    <script>window.__INITIAL_DATA__ = {{ data }}</script>
+    {% endif %}
+  </head>
+  <body>
+    <div id="app">{{ markup }}</div>
+    <script src="//g.alicdn.com/player/h5phoneplayer/1.6.33/js/h5phoneplayer.min.js"></script>
+  </body>
+</html>

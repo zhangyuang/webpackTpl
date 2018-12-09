@@ -3,14 +3,30 @@ import { connect } from 'dva'
 import './video.css'
 
 class Video extends Component {
+  constructor (props) {
+    super(props)
+    console.log(window, window.__INITIAL_DATA__)
+    if (window) {
+      this.props.videoArr = window.__INITIAL_DATA__
+      delete window.__INITIAL_DATA__
+    }
+  }
   componentDidMount () {
     this.getVideo()
   }
-  getVideo () {
-    this.props.dispatch({
+
+  prefetch () {
+    console.log(this.props.dispatch, 'xxx')
+    return this.props.dispatch({
       type: 'video/get',
       payload: {}
     })
+  }
+  getVideo () {
+    // this.props.dispatch({
+    //   type: 'video/get',
+    //   payload: {}
+    // })
   }
 
   initPlayer (videoArr) {
@@ -45,7 +61,7 @@ class Video extends Component {
   render () {
     const videoArr = this.props.videoArr
     return (
-      <div className='video-container'>
+      <div className='videoContainer'>
         <div id='playerWrap' >
           {
             videoArr.map((item, index) => {
@@ -82,4 +98,5 @@ const mapStateToProps = (state) => {
     videoArr: state.video.videoArr
   }
 }
+
 export default connect(mapStateToProps)(Video)

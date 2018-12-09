@@ -8,6 +8,14 @@ const webpackConfig = merge(baseWebpackConfig, {
   entry: {
     app: './src/entry-server.js'
   },
+  module: {
+    rules: [
+      {
+        test: /\.css/,
+        use: ['ignore-loader']
+      }
+    ]
+  },
   output: {
     filename: 'server.js',
     libraryTarget: 'commonjs2' // 打包成commonjs2规范
@@ -16,7 +24,7 @@ const webpackConfig = merge(baseWebpackConfig, {
 
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.REACT_ENV': JSON.stringify('server') // 指定React环境为服务端
+      __isBrowser__: 'false'
     })
   ]
 })

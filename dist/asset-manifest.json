@@ -1,10 +1,11 @@
 {
+  "main.css": "/static/css/main.0c22d1ee.chunk.css",
   "main.js": "/static/js/main.chunk.js",
+  "main.css.map": "/static/css/main.0c22d1ee.chunk.css.map",
   "main.js.map": "/static/js/main.chunk.js.map",
   "static/js/0.chunk.js": "/static/js/0.chunk.js",
   "static/js/0.chunk.js.map": "/static/js/0.chunk.js.map",
   "runtime~main.js": "/static/js/bundle.js",
   "runtime~main.js.map": "/static/js/bundle.js.map",
-  "static/media/video.css": "/static/media/video.beb149a5.css",
   "template.html": "/template.html"
 }

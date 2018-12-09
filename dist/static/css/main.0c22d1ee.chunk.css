@@ -85,7 +85,8 @@ body {
 .author {
   position: absolute;
   top: 50%;
-  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
   left: 16px;
   font-size: 14px;
   color: #000;
@@ -100,7 +101,8 @@ body {
 .share-img {
   position: absolute;
   top: 50%;
-  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
   right: 19px;
   width: 24px;
 }
@@ -108,7 +110,8 @@ body {
 .comment {
   position: absolute;
   top: 50%;
-  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
   right: 19px;
 }
 
@@ -155,7 +158,8 @@ body {
 .adver-text {
   position: absolute;
   top: 50%;
-  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
   color: #ddd;
   font-size: 10px;
   border: 1px solid #ddd;
@@ -168,7 +172,8 @@ body {
 .adver-name {
   position: absolute;
   top: 50%;
-  transform: translate(0, -50%);
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
   left: 40px;
   color: #acacac;
   font-size: 10px;
@@ -178,10 +183,13 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   z-index: 1000;
 }
 
 .x-video-poster {
   background-image: url('https://img.alicdn.com/tfs/TB1WFWqohTpK1RjSZFKXXa2wXXa-1125-633.png')
 }
+
+/*# sourceMappingURL=main.0c22d1ee.chunk.css.map*/

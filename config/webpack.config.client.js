@@ -11,7 +11,12 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const ModuleNotFoundPlugin = require('react-dev-utils/ModuleNotFoundPlugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const getClientEnvironment = require('./env')
-const publicUrl = '/'
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+
+const publicPath = paths.servedPath
+const publicUrl = publicPath.slice(0, -1)
+const shouldUseRelativeAssetPaths = publicPath === './'
+const shouldUseSourceMap = process.env.GENERATE_SOURCEMAP !== 'false'
 // Get environment variables to inject into our app.
 // style files regexes
 const cssRegex = /\.css$/
@@ -19,9 +24,16 @@ const cssModuleRegex = /\.module\.css$/
 const sassRegex = /\.(scss|sass)$/
 const sassModuleRegex = /\.module\.(scss|sass)$/
 getClientEnvironment(publicUrl)
+// common function to get style loaders
 const getStyleLoaders = (cssOptions, preProcessor) => {
   const loaders = [
-    require.resolve('style-loader'),
+    {
+      loader: MiniCssExtractPlugin.loader,
+      options: Object.assign(
+        {},
+        shouldUseRelativeAssetPaths ? { publicPath: '../../' } : undefined
+      )
+    },
     {
       loader: require.resolve('css-loader'),
       options: cssOptions
@@ -38,12 +50,18 @@ const getStyleLoaders = (cssOptions, preProcessor) => {
             },
             stage: 3
           })
-        ]
+        ],
+        sourceMap: shouldUseSourceMap
       }
     }
   ]
   if (preProcessor) {
-    loaders.push(require.resolve(preProcessor))
+    loaders.push({
+      loader: require.resolve(preProcessor),
+      options: {
+        sourceMap: shouldUseSourceMap
+      }
+    })
   }
   return loaders
 }
@@ -76,20 +94,33 @@ const clientConfig = merge(baseWebpackConfig, {
     runtimeChunk: true
   },
   module: {
+    strictExportPresence: true,
     rules: [
+      { parser: { requireEnsure: false } },
       {
         oneOf: [
           {
+            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+            loader: require.resolve('url-loader'),
+            options: {
+              limit: 10000,
+              name: 'static/media/[name].[hash:8].[ext]'
+            }
+          },
+          {
             test: cssRegex,
             exclude: cssModuleRegex,
-            use: getStyleLoaders({
-              importLoaders: 1
-            })
+            loader: getStyleLoaders({
+              importLoaders: 1,
+              sourceMap: shouldUseSourceMap
+            }),
+            sideEffects: true
           },
           {
             test: cssModuleRegex,
-            use: getStyleLoaders({
+            loader: getStyleLoaders({
               importLoaders: 1,
+              sourceMap: shouldUseSourceMap,
               modules: true,
               getLocalIdent: getCSSModuleLocalIdent
             })
@@ -97,24 +128,42 @@ const clientConfig = merge(baseWebpackConfig, {
           {
             test: sassRegex,
             exclude: sassModuleRegex,
-            use: getStyleLoaders({ importLoaders: 2 }, 'sass-loader')
+            loader: getStyleLoaders(
+              {
+                importLoaders: 2,
+                sourceMap: shouldUseSourceMap
+              },
+              'sass-loader'
+            ),
+            sideEffects: true
           },
           {
             test: sassModuleRegex,
-            use: getStyleLoaders(
+            loader: getStyleLoaders(
               {
                 importLoaders: 2,
+                sourceMap: shouldUseSourceMap,
                 modules: true,
                 getLocalIdent: getCSSModuleLocalIdent
               },
               'sass-loader'
             )
+          },
+          {
+            loader: require.resolve('file-loader'),
+            exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
+            options: {
+              name: 'static/media/[name].[hash:8].[ext]'
+            }
           }
         ]
       }
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      __isBrowser__: 'true'
+    }),
     new ModuleNotFoundPlugin(paths.appPath),
     new webpack.HotModuleReplacementPlugin(),
     new CaseSensitivePathsPlugin(),
@@ -124,10 +173,15 @@ const clientConfig = merge(baseWebpackConfig, {
       fileName: 'asset-manifest.json',
       publicPath: '/'
     }),
+    new MiniCssExtractPlugin({
+      filename: 'static/css/[name].[contenthash:8].css',
+      chunkFilename: 'static/css/[name].[contenthash:8].chunk.css'
+    }),
     new HtmlWebpackPlugin({
       inject: true,
       template: paths.appHtml,
-      filename: 'template.html'
+      filename: 'template.html',
+      hash: true
     })
   ]
 })

@@ -7,7 +7,6 @@ const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin')
 const paths = require('./paths')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin-alt')
 const typescriptFormatter = require('react-dev-utils/typescriptFormatter')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const useTypeScript = fs.existsSync(paths.appTsConfig)
 const isProd = process.env.NODE_ENV === 'prod'
@@ -57,21 +56,15 @@ module.exports = {
       {
         oneOf: [
           {
-            test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-            loader: require.resolve('url-loader'),
-            options: {
-              limit: 10000,
-              name: 'static/media/[name].[hash:8].[ext]'
-            }
-          },
-          {
             test: /\.(js|mjs|jsx|ts|tsx)$/,
             include: paths.appSrc,
+
             loader: require.resolve('babel-loader'),
             options: {
               customize: require.resolve(
                 'babel-preset-react-app/webpack-overrides'
               ),
+
               plugins: [
                 [
                   require.resolve('babel-plugin-named-asset-import'),
@@ -85,8 +78,9 @@ module.exports = {
                 ]
               ],
               cacheDirectory: true,
-              // Don't waste time on Gzipping the cache
-              cacheCompression: false
+              // Save disk space when time isn't as important
+              cacheCompression: true,
+              compact: true
             }
           },
           {
@@ -104,24 +98,9 @@ module.exports = {
                 ]
               ],
               cacheDirectory: true,
-              // Don't waste time on Gzipping the cache
-              cacheCompression: false,
+              cacheCompression: true,
               sourceMaps: false
             }
-          },
-          {
-            exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/],
-            loader: require.resolve('file-loader'),
-            options: {
-              name: 'static/media/[name].[hash:8].[ext]'
-            }
-          },
-          {
-            test: /\.css$/,
-            use: [
-              MiniCssExtractPlugin.loader,
-              'css-loader'
-            ]
           }
         ]
       }
@@ -130,10 +109,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name].[chunkhash:8].css',
-      chunkFilename: '[id].css'
-    }),
     // TypeScript type checking
     useTypeScript &&
         new ForkTsCheckerWebpackPlugin({

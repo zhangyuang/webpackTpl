@@ -20,8 +20,8 @@ app.use(koaStatic('dist'))
 
 const render = (ctx, next) => {
   const activeRoute = clientRoutes.find((route) => matchPath(ctx.req.url, route)) || {}
-  const promise = activeRoute.fetchInitialData
-    ? activeRoute.fetchInitialData(ctx.req.path)
+  const promise = activeRoute.prefetch
+    ? activeRoute.prefetch(ctx.req.path)
     : Promise.resolve()
   promise.then((data) => {
     const context = { data }
@@ -58,9 +58,10 @@ const render = (ctx, next) => {
       serverApp.start()
     )
     const html = nunjucks.renderString(template, {
-      data: data,
+      data: serialize(data),
       markup: markup
     })
+    console.log('html', html)
     // 将渲染后的html字符串发送给客户端
     ctx.res.end(html)
     next()

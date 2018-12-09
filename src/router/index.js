@@ -1,10 +1,11 @@
 import Video from '../components/video'
-
+import { getVideo } from '../services/video'
 const routes = [
   {
     path: '/',
     exact: true,
-    component: Video
+    component: Video,
+    prefetch: getVideo
   }
 ]
 

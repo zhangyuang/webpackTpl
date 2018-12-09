@@ -5,14 +5,13 @@ import './video.css'
 class Video extends Component {
   constructor (props) {
     super(props)
-    console.log(window, window.__INITIAL_DATA__)
-    if (window) {
+    console.log(window.__INITIAL_DATA__)
+    if (window && window.__INITIAL_DATA__) {
       this.props.videoArr = window.__INITIAL_DATA__
-      delete window.__INITIAL_DATA__
     }
   }
   componentDidMount () {
-    this.getVideo()
+    // this.getVideo()
   }
 
   prefetch () {
@@ -23,10 +22,10 @@ class Video extends Component {
     })
   }
   getVideo () {
-    // this.props.dispatch({
-    //   type: 'video/get',
-    //   payload: {}
-    // })
+    this.props.dispatch({
+      type: 'video/get',
+      payload: {}
+    })
   }
 
   initPlayer (videoArr) {

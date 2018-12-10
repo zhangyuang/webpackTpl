@@ -8,7 +8,6 @@ class App extends Component {
       <Switch>
         {
           routes.map(({ path, exact, component: Component }) => {
-            console.log(path, Component)
             return <Route key={path} path={path} exact={exact} component={Component} />
           })
         }

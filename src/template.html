@@ -7,7 +7,7 @@
     <link rel="stylesheet" type="text/css" href="//g.alicdn.com/player/h5phoneplayer/1.6.33/css/h5phoneplayer.min.css">
     <title>React SSR App</title>
     {% if data %} 
-    <script>window.__INITIAL_DATA__ = {{ data }}</script>
+    <script>window.__INITIAL_DATA__ = {{ data | safe }}</script>
     {% endif %}
   </head>
   <body>

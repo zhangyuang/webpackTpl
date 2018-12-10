@@ -4,7 +4,13 @@ import dva from 'dva'
 import { browserHistory, Router } from 'dva/router'
 import App from './App'
 
-const app = dva({ browserHistory })
+const app = dva({ browserHistory,
+  initialState: {
+    video: {
+      videoArr: window.__INITIAL_DATA__ || []
+    }
+  }
+})
 // 2. Plugins
 // app.use({});
 

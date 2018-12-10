@@ -3,7 +3,7 @@ import * as videoService from '../services/video'
 export default {
   namespace: 'video',
   state: {
-    videoArr: []
+    // videoArr: []
   },
   reducers: {
     saveVideo (state, action) {

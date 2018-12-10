@@ -59,7 +59,7 @@ const render = (ctx, next) => {
     )
     console.log('mark', markup)
     const html = nunjucks.renderString(template, {
-      data: JSON.stringify(data),
+      data: serialize(data),
       markup: markup
     })
     // 将渲染后的html字符串发送给客户端

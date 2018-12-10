@@ -3,15 +3,8 @@ import { connect } from 'dva'
 import './video.css'
 
 class Video extends Component {
-  constructor (props) {
-    super(props)
-    console.log(window.__INITIAL_DATA__)
-    if (window && window.__INITIAL_DATA__) {
-      this.props.videoArr = window.__INITIAL_DATA__
-    }
-  }
   componentDidMount () {
-    // this.getVideo()
+    this.initPlayer(this.props.videoArr)
   }
 
   prefetch () {
@@ -55,7 +48,7 @@ class Video extends Component {
     })
   }
   componentDidUpdate () {
-    this.initPlayer(this.props.videoArr)
+    // this.initPlayer(this.props.videoArr)
   }
   render () {
     const videoArr = this.props.videoArr

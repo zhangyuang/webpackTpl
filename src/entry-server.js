@@ -2,12 +2,12 @@
 import fs from 'fs'
 import path from 'path'
 import Koa from 'koa'
-import Router from 'koa-router'
+import KoaRouter from 'koa-router'
 import React from 'react'
 import dva from 'dva'
 import { renderToNodeStream, renderToString} from 'react-dom/server'
 import nunjucks from 'nunjucks'
-import { StaticRouter, matchPath } from 'dva/router'
+import { StaticRouter, matchPath, Router } from 'dva/router'
 import serialize from 'serialize-javascript'
 import App from './App'
 import koaStatic from 'koa-static'
@@ -15,7 +15,7 @@ import clientRoutes from '../src/router'
 import { createMemoryHistory } from 'history'
 const template = fs.readFileSync(path.resolve('./dist/template.html'), 'utf-8').toString()
 const app = new Koa()
-const serverRouter = new Router()
+const serverRouter = new KoaRouter()
 app.use(koaStatic('dist'))
 
 const render = (ctx, next) => {
@@ -43,21 +43,28 @@ const render = (ctx, next) => {
     const history = createMemoryHistory({
       initialEntries: [ctx.req.url]
     })
-    const serverApp = dva({ history })
+    const serverApp = dva({history,
+      initialState: {
+        video: {
+          videoArr: data || []
+        }
+      }
+    })
     serverApp.model(require('./model/video').default)
 
     serverApp.router((history) => {
       return (
-        <StaticRouter location={ctx.req.url} context={context} history={history}>
+        <StaticRouter location={ctx.req.url} context={context}>
           <App />
         </StaticRouter>
       )
     }
     )
+    const start = serverApp.start()
     const markup = renderToString(
-      serverApp.start()
+      start()
     )
-    console.log('mark', markup)
+
     const html = nunjucks.renderString(template, {
       data: serialize(data),
       markup: markup

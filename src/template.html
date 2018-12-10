@@ -11,7 +11,7 @@
     {% endif %}
   </head>
   <body>
-    <div id="app">{{ markup }}</div>
+    <div id="app">{{ markup | safe }}</div>
     <script src="//g.alicdn.com/player/h5phoneplayer/1.6.33/js/h5phoneplayer.min.js"></script>
   </body>
 </html>

@@ -5,13 +5,7 @@ import routes from './router'
 class App extends Component {
   render () {
     return (
-      <Switch>
-        {
-          routes.map(({ path, exact, component: Component }) => {
-            return <Route key={path} path={path} exact={exact} component={Component} />
-          })
-        }
-      </Switch>
+      <Switch>{routes.map(({ path, exact, component: Component }) => { return <Route key={path} path={path} exact={exact} component={Component} /> })}</Switch>
     )
   }
 }

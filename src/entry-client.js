@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import dva from 'dva'
-import { browserHistory, Router } from 'dva/router'
+import { browserHistory, Router, BrowserRouter } from 'dva/router'
 import App from './App'
 
 const app = dva({ browserHistory,
@@ -20,12 +20,12 @@ app.model(require('./model/video').default)
 // 4. Router
 app.router(function RouterConfig ({ history }) {
   return (
-    <Router history={history}>
+    <BrowserRouter >
       <App />
-    </Router>
+    </BrowserRouter>
   )
 }
 )
 
 const Start = app.start()
-ReactDOM.render(<Start />, document.getElementById('app'))
+ReactDOM.hydrate(<Start />, document.getElementById('app'))

@@ -7,13 +7,6 @@ class Video extends Component {
     this.initPlayer(this.props.videoArr)
   }
 
-  prefetch () {
-    console.log(this.props.dispatch, 'xxx')
-    return this.props.dispatch({
-      type: 'video/get',
-      payload: {}
-    })
-  }
   getVideo () {
     this.props.dispatch({
       type: 'video/get',

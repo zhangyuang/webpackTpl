@@ -21,16 +21,7 @@ class Video extends Component {
       if (!vid) return false
       const config = {
         id: 'youku-player',
-        vid: vid,
-        client_id: '1c9aa3003b83b3b2',
-        events: {
-          onPlayStart: this.wifiPlayH5,
-          onAdPlayStart: this.onPlayH5,
-          onPlayEnd: this.onPlayEnd,
-          onMediaSrcOK: this.onMediaSrcOK,
-          onPlay: this.onPlayH5,
-          onReady: this.onReadyH5
-        }
+        vid: vid
       }
       const uiConfig = {
         dash: { // 控制栏按钮隐藏配置

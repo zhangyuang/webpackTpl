@@ -1,5 +1,12 @@
 # webpack + Vue多页面应用脚手架模版
 
+```
+npm i
+npm run dev
+npm run analyze // 生成可视化打包目录
+npm run build
+```
+
 ## 开发规范
 项目结构按照xxx.html对应src/xxx文件夹规范开发。一个html页面文件对应src下同名的目录
 

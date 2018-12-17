@@ -11,7 +11,7 @@ module.exports = {
     productionGzip: false, // 构建时开启gzip
     productionGzipExtensions: ['js', 'css'],
     bundleAnalyzerReport: process.env.npm_config_report, // 可视化分析打包结果
-    notCoverPublishMode: true // 是否为文件生成hash后缀
+    notCoverPublishMode: false // 是否为文件生成hash后缀
   },
   testing: {
     env: require('./testing.env'),
